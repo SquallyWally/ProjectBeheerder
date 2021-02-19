@@ -1,0 +1,38 @@
+﻿@model ProjectBeheerder.ViewModels.ProjectFormViewModel
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h2>Projectenform</h2>
+
+@using (Html.BeginForm("Opslaan", "Projecten"))
+
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.CategorieId)
+        @Html.DropDownListFor(x => x.CategorieId, new SelectList(Model.Categories, "Id", "Name"), new { @class = "form-control" })
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.DatumToegevoegd)
+        @Html.TextBoxFor(x => x.DatumToegevoegd, "{0:d MMM yyyy}", new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btwn btn-primary"> Opslaan </button>
+
+}
+
+@section scripts
+{
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

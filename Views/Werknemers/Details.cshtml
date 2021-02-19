@@ -1,0 +1,15 @@
+﻿@model ProjectBeheerder.Models.TrueModels.Werknemer
+@{
+    ViewBag.Title = "Model.Name";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<body>
+    <ul>
+        <li> Naam: @Model.Name</li>
+        <li> Positie: @Model.WerkPositie.Name</li>
+        <li> Niveau: @Model.WerkPositie.Niveau</li>
+
+    </ul>
+</body>

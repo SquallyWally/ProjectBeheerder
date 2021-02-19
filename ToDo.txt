@@ -1,0 +1,11 @@
+﻿-Project en Categoerie in Views (KLAAR)
+-Eager Loading (KLAAR)
+-CRUD (KLAAR) => Edit aanpassen/fixen
+-Authenticatie(ISH)
+-API
+-Tabellen (ish)
+-Mooie bootstrap homepage
+-export database info naar een PDF/CSV
+
+eta 4-6 uurtjes
+

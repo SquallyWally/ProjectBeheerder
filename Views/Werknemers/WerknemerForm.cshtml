@@ -1,0 +1,36 @@
+﻿@model ProjectBeheerder.ViewModels.WerknemerFormViewModel
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>WerknemerForm</h2>
+
+@using (Html.BeginForm("Opslaan", "Werknemers"))
+
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Werknemer.Name)
+        @Html.TextBoxFor(x => x.Werknemer.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Werknemer.WerkpositieId)
+        @Html.DropDownListFor(x => x.Werknemer.WerkpositieId, new SelectList(Model.Werkposities, "Id", "Name"), new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Werknemer.GeboorteDatum)
+        @Html.TextBoxFor(x => x.Werknemer.GeboorteDatum, "{0:d MMM yyyy}", new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btwn btn-primary"> Opslaan </button>
+
+}
+
+@section scripts
+{
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

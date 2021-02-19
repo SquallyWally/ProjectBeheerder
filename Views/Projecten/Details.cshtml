@@ -1,0 +1,12 @@
+﻿@model ProjectBeheerder.Models.TrueModels.Project
+@{
+    ViewBag.Title = "Model.Name";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<body>
+    <ul>
+        <li>Werkpos: @Model.Categorie.name</li>
+    </ul>
+</body>

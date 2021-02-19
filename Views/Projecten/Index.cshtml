@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProjectBeheerder.Models.TrueModels.Project>
+@{
+    ViewBag.Title = "Projecten";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Projecten</h2>
+
+<p>
+    @Html.ActionLink("Add Project", "ProjectenForm", "Projecten", null, new { @class = "btn btn-primary" })
+</p>
+
+@if (!Model.Any())
+{
+    <p> We hebben geen projecten</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>Categorie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var w in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(w.Name, "Edit", "Projecten", new { id = w.Id }, null)</td>
+                    <td>@w.Categorie.name</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+}

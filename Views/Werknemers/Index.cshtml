@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ProjectBeheerder.Models.TrueModels.Werknemer>
+@{
+    ViewBag.Title = "Werknemers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Werknemers</h2>
+<p>
+    @Html.ActionLink("Add Werknemer", "WerknemerForm", "Werknemers", null, new { @class = "btn btn-primary" })
+</p>
+
+
+@if (!Model.Any())
+{
+    <p> We hebben geen werknemers</p>
+}
+else
+{
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Werknemer</th>
+                <th>Werkpositie</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var w in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(w.Name, "Edit", "Werknemers", new { id = w.Id }, null)</td>
+                    <td>@w.WerkPositie.Name</td>
+                    <td><button data-klant-id="@w.Id" style="background-color:red" class="=btn-link js-delete"> Delete</button></td>     
+                </tr>
+                
+            }
+        </tbody>
+    </table>
+
+}
+
