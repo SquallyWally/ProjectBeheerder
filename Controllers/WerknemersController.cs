@@ -46,7 +46,7 @@ namespace ProjectBeheerder.Controllers
 
             var vm = new WerknemerFormViewModel
             {
-                Werknemer = new Werknemer(),
+                
                 Werkposities = werkposities
             };
 
@@ -59,9 +59,9 @@ namespace ProjectBeheerder.Controllers
             if (!ModelState.IsValid)
             {
                 var werkposities = ctx.Werkposities.ToList();
-                var vm = new WerknemerFormViewModel
+                var vm = new WerknemerFormViewModel(werknemer)
                 {
-                    Werknemer = werknemer,
+                    
                     Werkposities = werkposities
                 };
                 return View("WerknemerForm", vm);
@@ -95,9 +95,9 @@ namespace ProjectBeheerder.Controllers
             }
 
             var werkposities = ctx.Werkposities.ToList();
-            var vm = new WerknemerFormViewModel
+            var vm = new WerknemerFormViewModel(werknemer)
             {
-                Werknemer = werknemer,
+                
                 Werkposities = werkposities
             };
             return View("WerknemerForm", vm);

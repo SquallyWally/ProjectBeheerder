@@ -1,11 +1,13 @@
 ﻿-Project en Categoerie in Views (KLAAR)
 -Eager Loading (KLAAR)
--CRUD (KLAAR) => Edit aanpassen/fixen
+-CRUD (KLAAR), NOG PROJECTEN 
 -Authenticatie(ISH)
--API
+-API (KLAAR),, NOG PROJECTEN 
 -Tabellen (ish)
 -Mooie bootstrap homepage
 -export database info naar een PDF/CSV
+
+-Meer tot meer relatie voor het toevoegen van een project aan een Werknemer
 
 eta 4-6 uurtjes
 

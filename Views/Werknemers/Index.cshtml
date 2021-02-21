@@ -17,7 +17,7 @@
 else
 {
 
-    <table class="table table-bordered table-hover">
+    <table id="werknemer" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Werknemer</th>
@@ -31,12 +31,43 @@ else
                 <tr>
                     <td>@Html.ActionLink(w.Name, "Edit", "Werknemers", new { id = w.Id }, null)</td>
                     <td>@w.WerkPositie.Name</td>
-                    <td><button data-klant-id="@w.Id" style="background-color:red" class="=btn-link js-delete"> Delete</button></td>     
+                    <td><button data-werknemer-id="@w.Id" style="background-color:red" class="=btn-link js-delete"> Delete</button></td>
                 </tr>
-                
+
             }
         </tbody>
     </table>
 
 }
 
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+
+            $("#werknemer").on("click", ".js-delete", function () {
+                var knop = $(this);
+                bootbox.confirm("Weet je het zeker dat je deze werknemer wilt gaan verwijderen?", function (res) {
+                    /**Bootbox.js voor dialogue box*/
+                    if (res) {
+                        $.ajax({
+                            url: "/api/werknemers/" + knop.attr("data-werknemer-id"),
+                            method: "DELETE",
+                            success: function () {
+                                console.log("Success");
+                                tabel.row(knop.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+
+
+
+        })
+
+
+    </script>
+}
